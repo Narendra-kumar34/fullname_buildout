@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
 
 function App() {
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitted(true);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Full Name Display</h1>
+      <form onSubmit={handleSubmit}>
+        <label>First Name:</label>
+        <input
+          type="text"
+          value={fname}
+          onChange={(e) => setFname(e.target.value)}
+          required
+        />
+        <br />
+        <label>Last Name:</label>
+        <input
+          type="text"
+          value={lname}
+          onChange={(e) => setLname(e.target.value)}
+          required
+        />
+        <br />
+        <button type="submit">Submit</button>
+      </form>
+      {isSubmitted? `Full Name: ${fname} ${lname}`:""}
     </div>
   );
 }
