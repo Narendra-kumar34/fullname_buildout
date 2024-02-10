@@ -8,6 +8,7 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsSubmitted(true);
   };
 
   return (
@@ -30,9 +31,9 @@ function App() {
           required
         />
         <br />
-        <button type="submit" onClick={() => setIsSubmitted(true)}>Submit</button>
+        <button type="submit" >Submit</button>
       </form>
-      {isSubmitted? `Full Name: ${fname} ${lname}`:""}
+      <div>{isSubmitted? `Full Name: ${fname} ${lname}`:""}</div>
     </div>
   );
 }
