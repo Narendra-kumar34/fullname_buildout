@@ -33,7 +33,7 @@ function App() {
         <br />
         <button type="submit" >Submit</button>
       </form>
-      <div>{isSubmitted? `Full Name: ${fname} ${lname}`:""}</div>
+      <div>{(isSubmitted && fname && lname)? `Full Name: ${fname} ${lname}`:""}</div>
     </div>
   );
 }
